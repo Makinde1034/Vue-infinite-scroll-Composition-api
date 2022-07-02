@@ -2,8 +2,10 @@
 	<div class="flex items-center justify-center px-5 w-full">
 		<div class="max-w-screen-2xl mx-auto px:5 lg:px-20 pb-12">
 			<nav class="text-center text-3xl py-6 font-lato font-bold">Most <span class="text-purp font-bold">starred </span>github repos</nav>
+			<div class="text-center pt-20" v-if="initialFetchLoading === true">Fetching repositories...</div>
 			<div
 				class="sm:grid-cols-2 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12"
+				v-else
 			>
 				<div v-for="(item, index) in data" :key="index">
 					<RepoInfo
@@ -35,9 +37,9 @@ import RepoInfo from "../components/RepoInfo.vue";
 export default {
 	components: { RepoInfo },
 	setup() {
-		const { loading, getData, data, getNextDataSet } = fetchDataAndPaginate();
+		const { loading, getData, data, getNextDataSet, initialFetchLoading } = fetchDataAndPaginate();
 
-		return { loading, getData, data, getNextDataSet };
+		return { loading, getData, data, getNextDataSet, initialFetchLoading };
 	},
 };
 </script>

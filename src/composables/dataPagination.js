@@ -4,18 +4,21 @@ import { getRepos } from "../api";
 
 const fetchDataAndPaginate = () => {
     const loading = ref(false);
+    const initialFetchLoading = ref(false)
     const _err = ref(null);
     let data = ref([]);
     let page = ref(1);
 
     const getData = async () => {
+        initialFetchLoading.value = true
         try {
             const repos = await getRepos(page.value);
             data.value = [...data.value, ...repos.items];
-            console.log(data.value);
+            initialFetchLoading.value = false
         } catch (err) {
             console.log(err);
             _err.value = err.message;
+            initialFetchLoading.value = false
         } 
     };
 
@@ -47,7 +50,7 @@ const fetchDataAndPaginate = () => {
         getData();
     });
 
-    return { loading, getData, data, getNextDataSet };
+    return { loading, getData, data, getNextDataSet, initialFetchLoading };
 
 }
 
