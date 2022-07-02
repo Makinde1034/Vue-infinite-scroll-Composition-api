@@ -1,7 +1,7 @@
 <template>
 	<div class="flex items-center justify-center px-5 w-full">
 		<div class="max-w-screen-2xl mx-auto px:5 lg:px-20 pb-12">
-			<nav class="text-center text-3xl py-6">Most <span class="text-purp font-bold">starred </span>github repos</nav>
+			<nav class="text-center text-3xl py-6 font-lato font-bold">Most <span class="text-purp font-bold">starred </span>github repos</nav>
 			<div
 				class="sm:grid-cols-2 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12"
 			>
@@ -14,6 +14,7 @@
 						:stars="item.stargazers_count"   
 						:forks="item.forks"
 						:visibility="item.visibility"
+						:user="item.owner.login"
 					/>
 				</div>
 			</div>

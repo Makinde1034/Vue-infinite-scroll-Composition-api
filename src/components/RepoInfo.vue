@@ -19,11 +19,15 @@
 				<p class="text-sm ">{{ forks }}</p>
 			</div>
             <div class="flex mt-2 items-center mb-2">
+				<p class="text-sm text-purp font-semibold mr-2">Owner :</p>
+				<p class="text-sm ">{{ user }}</p>
+			</div>
+            <div class="flex mt-2 items-center mb-2">
 				<p class="text-sm text-purp font-semibold mr-2">Visibility :</p>
 				<p class="text-sm ">{{ visibility }}</p>
 			</div>
 			<a :href="url"
-				><button class="bg-purp shadow w-32 py-2 text-white rounded-md mt-2">
+				><button class="bg-purp font-semibold shadow w-32 py-2 text-white rounded-md mt-2">
 					Visit
 				</button></a
 			>
@@ -40,11 +44,10 @@ export default {
 		url: String,
 		stars: Number,
         forks:Number,
-        visibility:String
+        visibility:String,
+        user:String
 	},
-    mounted(){
-       console.log(this.url)
-    }
+
 };
 </script>
 
