@@ -1,6 +1,6 @@
 <template>
 	<div class="bg-white flex shadow-md p-5  rounded-md">
-		<div class="h-52 mr-6 w-60">
+		<div class="h-52 w-52 mr-6 w-60">
 			<img
 				class="h-full rounded-xl w-full object-cover border border-grey"
 				:src="avartar"
@@ -9,7 +9,6 @@
 		</div>
 		<div class="lg:w-3/6 w-full">
 			<p class="mb-2 font-semibold text-lg">{{ name }}</p>
-			
 			<div class="flex mt-2 items-center mb-2">
 				<p class="text-sm text-purp font-semibold mr-2">Stars :</p>
 				<p class="text-sm ">{{ stars }}</p>
